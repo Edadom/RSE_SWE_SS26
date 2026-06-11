@@ -19,4 +19,4 @@ include(GoogleTest)
 enable_testing()
 
 
-add_subdirectory(sudoku)
+add_subdirectory(webshop)
