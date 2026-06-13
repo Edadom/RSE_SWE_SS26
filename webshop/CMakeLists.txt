@@ -6,13 +6,3 @@ add_executable(test_webshop test/webshop.cpp)
 target_include_directories(test_webshop PRIVATE include)
 target_link_libraries(test_webshop GTest::gtest_main)
 gtest_discover_tests(test_webshop)
-
-set(PYBIND11 FINDPYTHON ON)
-find_package(pybind11 CONFIG REQUIRED)
-
-pybind11_add_module(sudoku_py python/python_wrapper.cpp ${SOURCES})
-target_include_directories(sudoku_py PRIVATE include)
-
-set_target_properties(sudoku_py PROPERTIES
-    LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/../sudoku/python
-)
