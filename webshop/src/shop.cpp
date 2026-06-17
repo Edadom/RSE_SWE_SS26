@@ -1,6 +1,7 @@
 #include "shop.hpp"
 #include "product.hpp"
 #include "item.hpp"
+#include "weightBasedItem.hpp"
 
 #include <iostream>
 #include <memory>
@@ -20,7 +21,10 @@ void Shop::removeProduct(uint32_t id)
 
 std::unique_ptr<Item> Shop::getItem(uint32_t id, double quantity)
 {
-    return std::make_unique(catalogue[id]);
+    if (catalogue.find(id) == catalogue.end()) {
+        return nullptr;
+    }
+    return std::make_unique<WeightBasedItem>(catalogue[id], quantity);
 }
 
 void Shop::listProducts()

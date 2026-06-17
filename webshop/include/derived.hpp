@@ -7,5 +7,5 @@ public:
     void whoami() override { std::cout << "i am Derived, my counter is " << internal_counter++ << std::endl;}
     void hello() {std::cout << something << std::endl;}
 private:
-    int something;
+    int something = 0;
 };
